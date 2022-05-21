@@ -1,0 +1,23 @@
+version: "3.8"
+
+volumes:
+  postgres_data:
+
+services:
+  postgres:
+    image: syncocean-db
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init_db.sql:/usr/share/syncocean/init_db.sql
+    env_file:
+      - .env
+  server:
+    image: syncocean-server
+    ports:
+      - 8080:8080
+    volumes:
+      - ./server/src:/usr/src/app
+    env_file:
+      - ./server/.env

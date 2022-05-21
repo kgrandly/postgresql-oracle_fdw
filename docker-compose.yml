@@ -1,0 +1,25 @@
+version: "3.8"
+
+volumes:
+  postgres_data:
+  oracledb_data:
+
+services:
+  postgres:
+    image: postgres-oracle_fdw
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+  # oracledb:
+  #   image: oracle/database:11.2.0.2-xe
+  #   shm_size: 1g
+  #   ports:
+  #     - 1521:1521
+  #     - 8080:8080
+  #   volumes:
+  #     - oracledb_data:/u01/app/oracle/oradata
+  #   environment:
+  #     - ORACLE_PWD=password
