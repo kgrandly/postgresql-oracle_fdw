@@ -103,4 +103,4 @@ def download_data(schema: str, table: str):
         return to_json({"Status": False, "Error": str(ex)})
 
 
-run(server="bjoern", host=config.srv_host, port=config.srv_port)
+run(server="bjoern", host=config.srv_host, port=config.srv_port, debug=True)

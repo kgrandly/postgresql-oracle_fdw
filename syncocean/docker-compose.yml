@@ -21,3 +21,9 @@ services:
       - ./server/src:/usr/src/app
     env_file:
       - ./server/.env
+  proxy:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
